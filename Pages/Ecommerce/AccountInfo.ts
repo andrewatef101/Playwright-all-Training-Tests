@@ -25,6 +25,7 @@ export class CreatAccountPage {
     readonly PhoneInput: Locator;
     readonly createAccountBtn: Locator;
     readonly AssertAccountCreated: Locator;
+    readonly ContinueBtn: Locator;
 
 
     constructor(page:Page){
@@ -57,6 +58,7 @@ export class CreatAccountPage {
         this.PhoneInput = page.getByLabel('Mobile Number *');
         this.createAccountBtn = page.getByRole('button', {name: "Create Account"});
         this.AssertAccountCreated = page.getByText("Account Created!");
+        this.ContinueBtn = page.getByRole('link', {name: "Continue"});
 
     }
 
@@ -118,7 +120,9 @@ export class CreatAccountPage {
 
         }
 
-
+        async ContineToNextPage(){
+            await this.ContinueBtn.click();
+        }
 
 
 }

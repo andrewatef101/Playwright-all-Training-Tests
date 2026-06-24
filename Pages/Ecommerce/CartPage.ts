@@ -16,6 +16,8 @@ export class CartPage {
 
     readonly AddedTitle: Locator;
     readonly AddedMessage:Locator; 
+    
+   
 
 
     constructor(page: Page) {
@@ -35,6 +37,7 @@ export class CartPage {
         this.InfoPrice = page.locator(".cart_price").first();
         this.InfoQty = page.locator('.cart_quantity').first();
         this.InfoTotal = page.locator('.cart_total').first ();
+        
 
     }
 
@@ -50,20 +53,22 @@ export class CartPage {
         await this.ViewCartBtn.click();
     }
 
-    async GetCartDetails(expectedName: string, expectedPrice: string, expectedQty: string, expectedTotal: string) {
-        await expect(this.InfoDesc).toHaveText(expectedName);
-        await expect(this.InfoPrice).toHaveText(expectedPrice);
-        await expect(this.InfoQty).toHaveText(expectedQty);
-        await expect(this.InfoTotal).toHaveText(expectedTotal);
+    async GetCartDetails(ItemDescription: string, ItemPrice: string, ItemQty: string, ItemTotal: string) {
+        await expect(this.InfoDesc).toHaveText(ItemDescription);
+        await expect(this.InfoPrice).toHaveText(ItemPrice);
+        await expect(this.InfoQty).toHaveText(ItemQty);
+        await expect(this.InfoTotal).toHaveText(ItemTotal);
 
     }
         
-        async RemoveItembtn() {
+        async RemoveItembtnVisible() {
             await expect(this.RemoveBtn).toBeVisible();
         }
 
-        async ProceedToCheckout() {
+        async ProceedToCheckoutClick() {
             await expect(this.ProceedToCheckoutBtn).toBeVisible();
             await this.ProceedToCheckoutBtn.click();
         }
+
+       
     }

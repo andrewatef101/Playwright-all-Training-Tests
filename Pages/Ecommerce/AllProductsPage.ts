@@ -7,6 +7,7 @@ export class AllProducts{
     readonly search_btn: Locator;
     readonly Product_hover: Locator;
     readonly add_to_cart_btn: Locator;
+     readonly Cart_btn_click: Locator;
 
     constructor(page: Page){
         this.page = page;
@@ -14,6 +15,7 @@ export class AllProducts{
         this.search_btn = page.locator('#submit_search');
         this.Product_hover = page.locator('.single-products').first();
         this.add_to_cart_btn = page.locator(".features_items .add-to-cart").first();
+        this.Cart_btn_click = page.getByRole('link', {name: "Cart"});
     }
 
         async ProductSearch(ProductName: string){
@@ -24,4 +26,8 @@ export class AllProducts{
         async addToCart(){
             await this.add_to_cart_btn.click({force: true});
         }
+        
+        async CartbtnClick() {
+            await this.Cart_btn_click.click();
+            }
     }
