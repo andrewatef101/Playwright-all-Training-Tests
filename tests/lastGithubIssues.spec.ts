@@ -1,5 +1,7 @@
 import {test, expect} from '@playwright/test';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
 const REPO = 'Last_Least';
 const User = 'andrewatef101';   
@@ -7,7 +9,6 @@ const User = 'andrewatef101';
 test('create new Issue', async ({request}) => {
 
     const uniqueid = new Date().getTime();
-    const
 
     const CreateNewIssue = await request.post('https://api.github.com/repos/andrewatef101/Last_Least/issues', {
         headers:{
