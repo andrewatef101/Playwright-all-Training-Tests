@@ -1,13 +1,17 @@
 import {test, expect} from '@playwright/test';
 
+// provide minimal declaration so TypeScript knows about process.env in this test file
+declare const process: { env: { GITHUB_TOKEN?: string } };
+
 
 const REPO = 'Last_Least';
 const User = 'andrewatef101';   
 
 test('create new Issue', async ({request}) => {
 
-    const uniqueid = new Date().getTime();
-    const
+    const uniqueId = new Date().getTime();
+    const issueTitle = `New Issue From Playwright API ${uniqueId}`;
+    const issueBody = `This issue is nonsense and I hope its the last one ${uniqueId}`;
 
     const CreateNewIssue = await request.post('https://api.github.com/repos/andrewatef101/Last_Least/issues', {
         headers:{
@@ -15,8 +19,8 @@ test('create new Issue', async ({request}) => {
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
         } ,
         data: {
-            "title": 'New Issue From Playwright API', 
-            'body': 'This issue is nonsense and I hope its the last one'
+            title: issueTitle,
+            body: issueBody
         }
     });
     expect(CreateNewIssue.status()).toBe(201);
