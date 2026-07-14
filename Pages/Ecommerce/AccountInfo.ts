@@ -100,15 +100,15 @@ export class CreatAccountPage {
             if (company){
                 await this.CompanyInput.fill(company);
                 }
-                await this.AddressInput.fill(Address);
-                if (address2){
-                    await this.Address2Input.fill(address2);
-                    }
-                    await this.ChooseCountry.selectOption(country);
-                    await this.StateInput.fill(state);
-                    await this.CityInput.fill(city);
-                    await this.ZipInput.fill(zipcode);
-                    await this.PhoneInput.fill(phone);
+            await this.AddressInput.fill(Address);
+            if (address2){
+            await this.Address2Input.fill(address2);
+            }
+            await this.ChooseCountry.selectOption(country);
+            await this.StateInput.fill(state);
+            await this.CityInput.fill(city);
+            await this.ZipInput.fill(zipcode);
+            await this.PhoneInput.fill(phone);
         }
         async CreatAccountClick(){
             await this.createAccountBtn.click();
