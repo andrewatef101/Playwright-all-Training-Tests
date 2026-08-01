@@ -1,0 +1,12 @@
+{
+    "validUser": {
+        "username": "standard_user",
+        "password": "secret_sauce"
+    },
+
+    "shippingInfo": {
+        "firstName": "Andrew",
+        "lastName": "Ibrahim",
+        "zipCode": "31134"
+    }
+}
